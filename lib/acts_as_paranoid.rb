@@ -34,8 +34,8 @@ module ActsAsParanoid
     
     include ActsAsParanoid::Core
     
-    # Magic!
-    default_scope { where(paranoid_default_scope_sql) }
+    # Magic! - fucking not awesome magick
+    default_scope { where(paranoid_default_scope_sql) } unless options[:without_default_scope]
 
     # The paranoid column should not be mass-assignable
     attr_protected paranoid_configuration[:column]
